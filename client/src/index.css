@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Honk&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  margin: 0;
+  font-family: "Happy Monkey", system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.architects-daughter-regular {
+  font-family: "Architects Daughter", cursive;
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+.honk {
+  font-family: "Honk", system-ui;
+}

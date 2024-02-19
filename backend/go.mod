@@ -1,6 +1,11 @@
 module backend
 
-go 1.22.0
+go 1.21.6
+
+require (
+	github.com/go-redis/redis/v8 v8.11.5
+	github.com/gofiber/fiber/v2 v2.52.0
+)
 
 require (
 	github.com/andybalholm/brotli v1.1.0 // indirect
@@ -16,9 +21,7 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.18.0 // indirect
-	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
-	github.com/gofiber/fiber/v2 v2.52.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.17.6 // indirect

@@ -6,7 +6,7 @@ export const fetchLeaderboard = () => ({
   type: FETCH_LEADERBOARD,
 });
 
-export const setLeaderboard = (leaderboard) => ({
+export const setLeaderboard = (response) => ({
   type: SET_LEADERBOARD,
-  payload: leaderboard,
+  leaderboard: response,
 });

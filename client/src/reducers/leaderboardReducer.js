@@ -9,7 +9,7 @@ const leaderboardReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_LEADERBOARD:
       return {
-        leaderboard: action.payload,
+        leaderboard: action.leaderboard,
       };
     default:
       return state;

@@ -1,10 +1,16 @@
 // src/reducers/gameReducer.js
-import { START_GAME, DRAW_CARD, drawCard } from "../actions/gameActions";
+import {
+  START_GAME,
+  DRAW_CARD,
+  drawCard,
+  SAVE_GAME,
+} from "../actions/gameActions";
 
 const initialState = {
   started: false,
   username: "",
-  deck: [], // Initialize with an empty array
+  score: 0,
+  deck: [],
   drawnCard: null,
   drawnCards: [],
 };
@@ -25,11 +31,13 @@ const gameReducer = (state = initialState, action) => {
         // Game has not started yet
         return state;
       }
-      if (state.deck?.length === 0) {
+      if (state.deck.length === 0) {
         console.log("You win!");
         return state;
       }
-      const drawnCard = state.deck.pop();
+      // Create a copy of the deck array before modifying it
+      const newDeck = [...state.deck];
+      const drawnCard = newDeck.pop(); // Use the copied deck array
       let message, card;
       switch (drawnCard) {
         case "KITTEN":
@@ -39,9 +47,8 @@ const gameReducer = (state = initialState, action) => {
           break;
         case "EXPLODE":
           // Bomb card - Player loses the game
-          message = "Game over! You drew an exploding kitten 💣";
+          message = "Game over! You drew an exploding kitten 💣.....";
           card = "EXPLODE";
-
           break;
         case "DIFFUSE":
           // Defuse card - Remove from deck
@@ -52,7 +59,6 @@ const gameReducer = (state = initialState, action) => {
           // Shuffle card - Restart the game and refill the deck
           message = "You drew a shuffle card 🔀";
           card = "SHUFFLE";
-
           // Implement logic to restart the game and refill the deck
           // You may dispatch a separate action to handle this
           break;
@@ -62,11 +68,16 @@ const gameReducer = (state = initialState, action) => {
       console.log(message);
       return {
         ...state,
-        deck: state.deck,
+        deck: newDeck, // Update with the copied deck array
         drawnCard: card,
-
         drawnCards: [...state.drawnCards, card],
       };
+    case SAVE_GAME:
+      return {
+        ...state,
+        score: state.score + action.count,
+      };
+
     default:
       return state;
   }

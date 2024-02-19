@@ -1,7 +1,5 @@
 import axios from "axios";
-
 const API_URL = "http://127.0.0.1:8080"; // Replace with your backend API URL
-
 // Function to start a new game
 export const startGame = async (username) => {
   try {
@@ -24,14 +22,23 @@ export const drawCard = async () => {
 };
 
 // Function to save game state
-export const saveGame = async () => {
-  // Implement logic to save game state
+export const saveGame = async (username, score) => {
+  try {
+    const response = await axios.post(`${API_URL}/save-game`, {
+      username,
+      score,
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
 };
 
 export const fetchLeaderboard = async () => {
   try {
     const response = await axios.get(`${API_URL}/leaderboard`);
     console.log("leader", response.data);
+    // dispatch(response.data);
 
     return response.data;
   } catch (error) {

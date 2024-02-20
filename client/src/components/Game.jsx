@@ -244,7 +244,7 @@ const Game = () => {
             </div>
 
             {pickedCard && (
-              <div className="flex absolute bottom-20 md:right-0 md:left-auto left-0  w-min shadow-xl bg-white flex-col justify-center items-center">
+              <div className="flex absolute bottom-0 md:right-0 md:left-auto left-0  w-min shadow-xl bg-white flex-col justify-center items-center">
                 <div className="md:text-xl text-sm p-2 text-nowrap  flex justify-center items-center font-bold text-gray-400 mb-2">
                   {message}
                   <div className="flex flex-col p-0 justify-center items-center border border-gray-400">

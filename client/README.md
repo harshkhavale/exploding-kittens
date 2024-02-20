@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Exploding Kitten Game 🐱💣
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Welcome to the Exploding Kitten web-based single-player card game! This project utilizes React with Redux for the frontend, Golang for the backend, and Redis for database storage. The objective is to draw cards from the deck, avoiding exploding kittens while collecting points to climb the leaderboard.
 
-In the project directory, you can run:
+## Features 🚀
 
-### `npm start`
+- Draw random cards from the deck 🃏
+- Create a username to enter the game 👤
+- Leaderboard to track user wins 🏆
+- Backend powered by Golang, utilizing Redis for data storage 🛠️
+- Real-time updates for leaderboard points 🔄
+- Automatic game saving for user progress 💾
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🔃. **Try the Game:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+https://exploding-kittens-alpha.vercel.app/
+```
 
-### `npm test`
+## Installation 🛠️
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository:**
 
-### `npm run build`
+```bash
+git clone https://github.com/harshkhavale/exploding-kittens
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Navigate to the project directory:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd exploding-kitten-game
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Install dependencies for frontend and backend:**
 
-### `npm run eject`
+```bash
+cd client
+npm install
+cd backend
+go mod tidy
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Setup Redis:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ensure Redis is installed and running on your system. If not, refer to the [Redis documentation](https://redis.io/download) for installation instructions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. **Configure environment variables:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a `.env` file in the `backend` directory and set the following variables:
 
-## Learn More
+```plaintext
+REDIS_ADDR=localhost:6379
+REDIS_DB=0
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. **Run the application:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd ../frontend
+npm start
+```
 
-### Code Splitting
+```bash
+cd ../backend
+go run main.go
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Assumptions 🤔
 
-### Analyzing the Bundle Size
+- User authentication is not implemented for simplicity.
+- Real-time updates are achieved through WebSocket integration.
+- Game state saving relies on local storage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing 🙌
 
-### Making a Progressive Web App
+Contributions are welcome! Feel free to open issues or pull requests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to customize this README further based on your project's specific needs and preferences.

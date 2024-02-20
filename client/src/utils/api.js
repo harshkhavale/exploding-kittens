@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://127.0.0.1:10000"; // Replace with your backend API URL
+const API_URL = "http://localhost:10000"; // Replace with your backend API URL
 // Function to start a new game
 export const startGame = async (username) => {
   try {
